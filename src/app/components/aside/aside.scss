@@ -1,0 +1,36 @@
+aside {
+    width: 240px;
+    border-right: 1px solid #8080804d;
+
+    a {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        color: #747474;
+        transition: background-color 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #cf132c21;
+        }
+
+        img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+    }
+
+    .submenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+
+        a {
+            padding: 6px 2rem;
+        }
+
+        &.open {
+            max-height: 500px;
+        }
+    }
+}

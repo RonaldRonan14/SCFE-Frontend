@@ -1,0 +1,55 @@
+header {
+    border-bottom: 1px solid #8080804d;
+
+    .menu-usuario {
+        .caixa-ativa-opcao {
+            cursor: pointer;
+        }
+
+        .caixa-opcao {
+            position: absolute;
+            top: 4rem;
+            display: flex;
+            flex-direction: column;
+            right: 1rem;
+            background-color: white;
+            border: 1px solid #8080804d;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+
+            &.open {
+                max-height: 150px;
+                opacity: 1;
+            }
+
+            span {
+                white-space: nowrap;
+                margin: 10px 10px 0 10px;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: .4rem;
+                transition: background-color 0.2s ease;
+                color: black;
+                padding: 8px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+
+                &:hover {
+                    background-color: #cf132c21;
+                }
+
+                img {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+        }
+    }
+}

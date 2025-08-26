@@ -1,0 +1,57 @@
+<div class="d-flex flex-column h-100">
+    <section class="d-flex justify-content-between py-2 px-3">
+        <div class="d-flex align-items-center gap-3 w-50">
+            <span>De:</span>
+            <input class="form-control" type="date">
+            <span>Até:</span>
+            <input class="form-control" type="date">
+            <select class="form-select" name="" id="">
+                <option value="" selected>Categorias</option>
+                <optgroup label="Receita">
+                    <option value="">Receita</option>
+                </optgroup>
+                <optgroup label="Despesa">
+                    <option value="">Despesa</option>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <button class="btn btn-primary">Incluir</button>
+        </div>
+    </section>
+    <hr class="m-0" />
+    <section class="flex-grow-1">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-1">Opções</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col" class="col-1">Valor</th>
+                    <th scope="col" class="col-1">Data</th>
+                    <th scope="col" class="col-2">Categoria</th>
+                    <th scope="col" class="col-1">Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+                            <i class="bi bi-pencil-square fs-5 cursor-pointer"></i>
+                            <i class="bi bi-trash3 fs-5 cursor-pointer"></i>
+                        </div>
+                    </td>
+                    <td>Teste</td>
+                    <td>12.13</td>
+                    <td>12/08/2025</td>
+                    <td>Receita</td>
+                    <td>Receita</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <hr class="m-0" />
+    <section class="bg-light-subtle p-2 d-flex justify-content-end align-items-center gap-3">
+        <span>Total: </span>
+        <input class="form-control" style="max-width: 8rem;" disabled type="text" name="" id="">
+    </section>
+</div>

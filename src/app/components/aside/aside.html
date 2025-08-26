@@ -1,0 +1,43 @@
+<aside class="d-flex flex-column h-100">
+    <div class="d-flex justify-content-center mt-3 mb-3">
+            <img src="/img/logo.png" alt="Logo da clinica" style="width: 14rem;">
+        </div>
+    <span class="ms-3 fs-3 fw-bold" style="color: #CF132B;">MG Contécnica</span>
+    <nav>
+        <ul class="p-0">
+            @for (item of menuItems; track item.label) {
+                <li>
+                    @if (item.subItems) {
+                        <a class="d-flex align-items-center justify-content-between px-3 py-1 me-3" (click)="abrirSubMenu(item.id!)" style="cursor: pointer;">
+                            <div class="d-flex gap-2">
+                                <i [classList]="item.icon"></i>
+                                {{ item.label }}
+                            </div>
+                            @if (isSubMenuOpen(item.id!)) {
+                                <i class="bi bi-caret-down-fill"></i>
+                            } @else {
+                                <i class="bi bi-caret-right-fill"></i>
+                            }
+                        </a>
+                        <ul class="p-0 submenu" [class.open]="isSubMenuOpen(item.id!)">
+                            @for (subItem of item.subItems; track subItem.label) {
+                                <li>
+                                    <a class="d-flex align-items-center gap-2 pe-3 py-1 me-3" [routerLink]="[subItem.link]" (click)="fecharTodosSubMenus()">
+                                        <i [classList]="subItem.icon"></i>
+                                        {{ subItem.label }}
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    @else {
+                        <a class="d-flex align-items-center gap-2 ps-3 py-1 me-3" [routerLink]="[item.link]">
+                            <i [classList]="item.icon"></i>
+                            {{ item.label }}
+                        </a>
+                    }
+                </li>
+            }
+        </ul>
+    </nav>
+</aside>

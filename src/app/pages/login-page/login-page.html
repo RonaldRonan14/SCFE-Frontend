@@ -1,0 +1,24 @@
+<main class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="border p-3 border-radius-1 w-25">
+        <form [formGroup]="autenticacaoForm" (submit)="ValidaCredenciais()">
+            <div class="d-flex justify-content-center">
+                <img src="/img/logo.png" style="width: 14rem;" alt="Logo">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="text" class="form-control" formControlName="email">
+                @if(autenticacaoForm.get("email")?.invalid && autenticacaoForm.get('email')?.dirty){
+                    <p class="text-danger mt-1">E-mail inválido.</p>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" formControlName="senha">
+                @if(autenticacaoForm.get("senha")?.invalid && autenticacaoForm.get('senha')?.dirty){
+                    <p class="text-danger mt-1">A senha é obrigatória.</p>
+                }
+            </div>
+            <button type="submit" class="btn btn-danger w-100" [disabled]="autenticacaoForm.invalid">Entrar</button>
+        </form>
+    </div>
+</main>
