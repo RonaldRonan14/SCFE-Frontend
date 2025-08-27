@@ -6,10 +6,10 @@ import { RouterLink } from '@angular/router';
   imports: [
     RouterLink
   ],
-  templateUrl: './aside.html',
-  styleUrl: './aside.scss'
+  templateUrl: './aside.component.html',
+  styleUrl: './aside.component.scss'
 })
-export class Aside {
+export class AsideComponent {
   subMenuStates: { [key: string]: boolean } = {};
 
   menuItems = [

@@ -35,7 +35,7 @@ export class TransacaoService {
       params = params.set('tipo', transacaoFiltro.tipo.toString());
     }
 
-    return this.http.get<Paginacao<Transacao>>(`${this.urlApi}`, { params: params })
+    return this.http.get<Paginacao<Transacao>>(this.urlApi, { params: params })
   }
 
   GetById(id: string): Observable<Transacao> {

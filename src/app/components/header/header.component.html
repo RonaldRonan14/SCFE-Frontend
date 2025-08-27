@@ -2,13 +2,13 @@
     <div>
         <div class="menu-usuario">
             <div class="d-flex align-items-center gap-2 caixa-ativa-opcao" (click)="abreMenuUsuario()">
-                <h6 class="mb-0">Ronald Ronan Galeno Brito</h6>
+                <h6 class="mb-0">{{ nome }}</h6>
                 <i class="bi bi-person-circle fs-3"></i>
             </div>
             <div class="caixa-opcao" [class.open]="menuUsuario">
-                <span><b>E-mail: </b> ronald.brito@gmail.com</span>
+                <span><b>E-mail: </b> {{ email }}</span>
                 <hr class="m-0 mt-1"/>
-                <a href="" style="text-decoration: none;">
+                <a class="cursor-pointer" style="text-decoration: none;" (click)="logout()">
                     <i class="bi bi-door-closed"></i>
                     Sair
                 </a>

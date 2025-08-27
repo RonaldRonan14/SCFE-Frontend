@@ -7,6 +7,11 @@ export interface Categoria {
     ativo: boolean,
 }
 
+export interface CategoriaFiltro {
+    nome: string | null,
+    tipo: TipoCategoria | null,
+}
+
 export interface CategoriaAdicionar {
     nome: string,
     tipo: TipoCategoria,

@@ -5,5 +5,5 @@ export interface Autenticacao {
 
 export interface Token {
     token: string,
-    expiracao: Date
+    expiracao: Date,
 }

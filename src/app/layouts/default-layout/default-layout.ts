@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Header } from '../../components/header/header';
-import { Aside } from '../../components/aside/aside';
+import { HeaderComponent } from '../../components/header/header.component';
+import { AsideComponent } from '../../components/aside/aside.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-default-layout',
   imports: [
-    Header,
-    Aside,
+    HeaderComponent,
+    AsideComponent,
     RouterOutlet
   ],
   templateUrl: './default-layout.html',

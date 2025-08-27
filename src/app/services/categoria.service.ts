@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../env/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Categoria, CategoriaAdicionar, CategoriaAtualizar } from '../models/categoria.model';
+import { Categoria, CategoriaAdicionar, CategoriaAtualizar, CategoriaFiltro } from '../models/categoria.model';
 import { Paginacao } from '../models/paginacao.model';
 
 @Injectable({
@@ -17,8 +17,20 @@ export class CategoriaService {
     return this.http.get<Categoria[]>(this.urlApi);
   }
 
-  GetPagination(page: number, pageSize: number): Observable<Paginacao<Categoria>> {
-    return this.http.get<Paginacao<Categoria>>(`${this.urlApi}/paginado?page=${page}&pageSize=${pageSize}`)
+  GetPagination(categoriaFiltro: CategoriaFiltro,  page: number, pageSize: number): Observable<Paginacao<Categoria>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
+
+    if (categoriaFiltro.nome?.trim()) {
+      params = params.set('nome', categoriaFiltro.nome.trim())
+    }
+
+    if (categoriaFiltro.tipo) {
+      params = params.set('tipo', categoriaFiltro.tipo.toString());
+    }
+
+    return this.http.get<Paginacao<Categoria>>(`${this.urlApi}/paginado`, { params: params })
   }
 
   GetById(id: string): Observable<Categoria> {

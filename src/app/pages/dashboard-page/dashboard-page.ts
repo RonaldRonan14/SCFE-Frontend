@@ -8,7 +8,7 @@ import { TransacaoService } from '../../services/transacao.service';
   selector: 'app-dashboard-page',
   imports: [],
   templateUrl: './dashboard-page.html',
-  styleUrl: './dashboard-page.scss'
+  styleUrl: './dashboard-page.scss',
 })
 export class DashboardPage implements OnInit {
   filtroForm!: FormGroup;

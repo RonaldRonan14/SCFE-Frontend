@@ -1,0 +1,29 @@
+@if (paginacao) {
+<hr class="m-0" />
+<div class="d-flex justify-content-between px-3 py-2">
+    <div>
+        <Select class="form-select" (change)="onMudarTamanhoPagina($event)">
+            @for (item of listaTamanhoPagina; track item) {
+            <option [value]="item" [selected]="item === paginacao.tamanhoPagina">{{ item }}</option>
+            }
+        </Select>
+    </div>
+    <nav aria-label="Paginação">
+        <ul class="pagination mb-0">
+            <li class="page-item" [class.disabled]="!paginacao.hasPaginaAnterior">
+                <a class="page-link text-danger cursor-pointer" (click)="onMudarPagina(paginacao.paginaAtual - 1)">Anterior</a>
+            </li>
+
+            @for (pagina of paginasArray; track pagina) {
+            <li class="page-item" [class.active]="pagina === paginacao.paginaAtual">
+                <a class="page-link text-danger cursor-pointer" (click)="onMudarPagina(pagina)">{{ pagina }}</a>
+            </li>
+            }
+
+            <li class="page-item" [class.disabled]="!paginacao.hasProximaPagina">
+                <a class="page-link text-danger cursor-pointer" (click)="onMudarPagina(paginacao.paginaAtual + 1)">Próximo</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+}
