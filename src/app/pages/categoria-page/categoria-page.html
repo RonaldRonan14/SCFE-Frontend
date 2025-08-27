@@ -1,1 +1,96 @@
-<p>categoria-page works!</p>
+<section class="d-flex justify-content-between py-2 px-3">
+    <div class="d-flex align-items-center gap-3 w-50">
+        <input class="form-control" type="text" placeholder="Descrição">
+        <select class="form-select" name="" id="">
+            <option value="0" selected>Tipo Categoria</option>
+            @for (tipo of getTiposCategoriaKeys(); track tipo) {
+            <option [value]="tipoCategoriaEnum[tipo]">{{ tipo }}</option>
+            }
+        </select>
+    </div>
+    <div>
+        <button class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#modal-adicionar-categoria">Incluir</button>
+    </div>
+</section>
+<hr class="m-0" />
+<section class="flex-grow-1">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" class="col-1">Opções</th>
+                <th scope="col">Nome</th>
+                <th scope="col" class="col-1">Tipo</th>
+                <th scope="col" class="col-1">Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center gap-2">
+                        <i class="bi bi-pencil-square fs-5 cursor-pointer"></i>
+                        <i class="bi bi-trash3 fs-5 cursor-pointer"></i>
+                    </div>
+                </td>
+                <td>Teste</td>
+                <td>Receita</td>
+                <td><input type="checkbox" name="" id="" disabled></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Modal adicionar -->
+<div class="modal fade" id="modal-adicionar-categoria" tabindex="-1" aria-labelledby="modal-adicionar-categoria-label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modal-adicionar-categoria-label">Adicionar categoria</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="adicionarCategoriaForm" (submit)="AdicionarCategoria()">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" formControlName="nome">
+                        @if (adicionarCategoriaForm.get("nome")?.invalid && adicionarCategoriaForm.get('nome')?.dirty){
+                            <p class="text-danger mt-1">O nome deve conter entre 6 a 50 caracteres.</p>
+                        }
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <select class="form-select" formControlName="tipo">
+                            @for (tipo of getTiposCategoriaKeys(); track tipo) {
+                                <option [value]="tipoCategoriaEnum[tipo]">{{ tipo }}</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="AdicionarCategoria()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal atualizar -->
+<div class="modal fade" id="modal-atualizar-categoria" tabindex="-1" aria-labelledby="modal-atualizar-categoria-label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modal-atualizar-categoria-label">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

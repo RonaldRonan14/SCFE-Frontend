@@ -36,7 +36,7 @@ export class DashboardPage implements OnInit {
     this.transacaoService.GetPagination(filtro, 1, 10).subscribe({
       next: (dados) => this.transacaoPaginada = dados,
       error: (err) => {
-        alert(err)
+        console.error(err)
       }
     })
   }
