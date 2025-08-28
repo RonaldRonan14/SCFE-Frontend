@@ -142,13 +142,13 @@ export class CategoriaPage implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Sucesso!',
-          text: 'Categoria adicionada com sucesso.',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        Swal.fire(
+          'Sucesso!',
+          'A categoria foi adicionada com sucesso.',
+          'success'
+        );
+        const dado: Categoria = result.value;
+        this.paginacaoCategoria.items.push(dado)
       }
     });
   }
@@ -223,16 +223,13 @@ export class CategoriaPage implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Sucesso!',
-          text: 'Categoria adicionada com sucesso.',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        Swal.fire(
+          'Sucesso!',
+          'A categoria foi atualizada com sucesso.',
+          'success'
+        );
 
         const dado: Categoria = result.value;
-        console.log(dado)
         const index = this.paginacaoCategoria.items.findIndex(i => i.id === dado.id);
         if (index !== -1) {
           this.paginacaoCategoria.items[index] = dado;

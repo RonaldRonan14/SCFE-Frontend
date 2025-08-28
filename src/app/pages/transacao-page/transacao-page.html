@@ -25,49 +25,51 @@
             </div>
         </div>
         <div>
-            <button class="btn btn-primary">Incluir</button>
+            <button class="btn btn-primary" (click)="modalAdicionarTransacao()">Incluir</button>
         </div>
     </section>
     <hr class="m-0" />
     <section class="flex-grow-1 d-flex flex-column">
         <div class="flex-grow-1">
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col" class="col-1">Opções</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col" class="col-1">Valor</th>
-                    <th scope="col" class="col-1">Data</th>
-                    <th scope="col" class="col-2">Categoria</th>
-                    <th scope="col" class="col-1">Tipo</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (paginacaoTransacao) {
-                @for (item of paginacaoTransacao.items; track item.id) {
-                <tr>
-                    <td>
-                        <div class="d-flex justify-content-center gap-2">
-                            <i class="bi bi-pencil-square fs-5 cursor-pointer"></i>
-                            <i class="bi bi-trash3 fs-5 cursor-pointer"></i>
-                        </div>
-                    </td>
-                    <td>{{ item.descricao }}</td>
-                    <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-                    <td>{{ item.data | date:'dd/MM/yyyy' }}</td>
-                    <td>{{ item.categoria.nome }}</td>
-                    <td>{{ getDescricaoTipo(item.categoria.tipo) }}</td>
-                </tr>
-                }
-                }
-            </tbody>
-        </table>
+            <div class="table-wrapper">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="col-1">Opções</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col" class="col-1">Valor</th>
+                            <th scope="col" class="col-1">Data</th>
+                            <th scope="col" class="col-2">Categoria</th>
+                            <th scope="col" class="col-1">Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (paginacaoTransacao) {
+                        @for (item of paginacaoTransacao.items; track item.id) {
+                        <tr>
+                            <td>
+                                <div class="d-flex justify-content-center gap-3">
+                                    <i class="bi bi-pencil-square fs-5 cursor-pointer"
+                                        (click)="modalAtualizarTransacao(item.id)"></i>
+                                    <i class="bi bi-trash3 fs-5 cursor-pointer"
+                                        (click)="modalRemoverTransacao(item.id)"></i>
+                                </div>
+                            </td>
+                            <td>{{ item.descricao }}</td>
+                            <td>{{ item.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+                            <td>{{ item.data | date:'dd/MM/yyyy' }}</td>
+                            <td>{{ item.categoria.nome }}</td>
+                            <td>{{ getDescricaoTipo(item.categoria.tipo) }}</td>
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div>
-            <app-paginacao 
-            [paginacao]="paginacaoTransacao" 
-            (opcaoPaginacao)="onMudarOpcaoPaginacao($event)"
-            (opcaoPaginacao)="onMudarOpcaoPaginacao($event)" />
+            <app-paginacao [paginacao]="paginacaoTransacao" (opcaoPaginacao)="onMudarOpcaoPaginacao($event)"
+                (opcaoPaginacao)="onMudarOpcaoPaginacao($event)" />
         </div>
     </section>
 </div>

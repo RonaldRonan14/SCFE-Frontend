@@ -22,7 +22,7 @@ export interface TransacaoAdicionar {
     valor: number,
     data: Date,
     categoriaid: string,
-    observacoes: string,
+    observacoes: string | null,
 }
 
 export interface TransacaoAtualizar {
