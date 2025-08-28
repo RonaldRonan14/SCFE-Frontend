@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { TipoCategoria, getDescricaoTipo, getTiposCategoriaKeys } from '../../enums/tipo-categoria.enum';
+import { TipoCategoria, getDescricaoTipo, getTiposCategoriaKeys } from '../../../enums/tipo-categoria.enum';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Paginacao } from '../../models/paginacao.model';
-import { Categoria, CategoriaAdicionar, CategoriaAtualizar, CategoriaFiltro } from '../../models/categoria.model';
-import { CategoriaService } from '../../services/categoria.service';
+import { Paginacao } from '../../../models/paginacao.model';
+import { Categoria, CategoriaAdicionar, CategoriaAtualizar, CategoriaFiltro } from '../../../models/categoria.model';
+import { CategoriaService } from '../../../services/categoria.service';
 import Swal from 'sweetalert2';
 import { firstValueFrom } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PaginacaoComponent } from "../../components/paginacao/paginacao.component";
+import { PaginacaoComponent } from "../../../components/paginacao/paginacao.component";
 
 @Component({
   selector: 'app-categoria-page',

@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { RelatorioFiltro, RelatorioResumo } from '../../models/relatorio.model';
-import { RelatorioService } from '../../services/relatorio.service';
+import { RelatorioFiltro, RelatorioPorCategoria } from '../../../models/relatorio.model';
+import { RelatorioService } from '../../../services/relatorio.service';
 import Swal from 'sweetalert2';
+import { getDescricaoTipo } from '../../../enums/tipo-categoria.enum';
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { getDescricaoTipo } from '../../enums/tipo-categoria.enum';
 
 @Component({
-  selector: 'app-dashboard-page',
+  selector: 'app-transacao-por-categoria-page',
   imports: [
     CurrencyPipe,
     DatePipe
   ],
-  templateUrl: './dashboard-page.html',
-  styleUrl: './dashboard-page.scss',
+  templateUrl: './transacao-por-categoria-page.html',
+  styleUrl: './transacao-por-categoria-page.scss'
 })
-export class DashboardPage implements OnInit {
-  relatorioResumo!: RelatorioResumo;
+export class TransacaoPorCategoriaPage implements OnInit {
+  relatorioTransacaoPorCategoria!: RelatorioPorCategoria[];
   filtro: RelatorioFiltro = {
     datainicio: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
     datafim: new Date(),
@@ -26,13 +26,13 @@ export class DashboardPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.carregarRelatorioResumo();
+    this.carregarRelatorioTransacaoPorCategoria();
   }
 
   filtroDatainicio(dataString: string): void {
     if (dataString.length === 0) {
       this.filtro.datainicio = new Date(new Date().getFullYear(), 0, 1)
-      this.carregarRelatorioResumo();
+      this.carregarRelatorioTransacaoPorCategoria();
       return;
     }
 
@@ -49,13 +49,13 @@ export class DashboardPage implements OnInit {
     }
 
     this.filtro.datainicio = data;
-    this.carregarRelatorioResumo();
+    this.carregarRelatorioTransacaoPorCategoria();
   }
 
   filtroDataFim(dataString: string): void {
     if (dataString.length === 0) {
       this.filtro.datafim = new Date()
-      this.carregarRelatorioResumo();
+      this.carregarRelatorioTransacaoPorCategoria();
       return;
     }
 
@@ -72,17 +72,17 @@ export class DashboardPage implements OnInit {
     }
 
     this.filtro.datafim = data;
-    this.carregarRelatorioResumo();
+    this.carregarRelatorioTransacaoPorCategoria();
   }
 
   getDescricaoTipo(tipo: number): string {
     return getDescricaoTipo(tipo)
   }
 
-  private carregarRelatorioResumo(): void {
-    this.relatorioService.GetSummaryReport(this.filtro).subscribe({
-      next: (dados: RelatorioResumo) => {
-        this.relatorioResumo = dados;
+  private carregarRelatorioTransacaoPorCategoria(): void {
+    this.relatorioService.GetReportByCategoria(this.filtro).subscribe({
+      next: (dados: RelatorioPorCategoria[]) => {
+        this.relatorioTransacaoPorCategoria = dados;
       },
       error: (err) => {
         Swal.fire({

@@ -38,7 +38,7 @@ export class PaginacaoComponent {
   onMudarTamanhoPagina(event: any): void {
     const novoTamanho = parseInt(event.target.value, 10);
     this.opcaoPaginacao.emit({
-      page: this.paginacao.paginaAtual,
+      page: 1,
       pageSize: novoTamanho,
     });
   }
