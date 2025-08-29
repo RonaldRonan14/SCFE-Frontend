@@ -58,4 +58,4 @@ A aplicação estará disponível em seu navegador em `http://localhost:4200/`.
 ##   Projeto backend
 Este repositório contém apenas o frontend da aplicação. Para ver e executar a API, confira o projeto **Backend** correspondente.
 
--   **Repositório Backend:** `https://github.com/RonaldRonan14/SCFE-Frontend`
+-   **Repositório Backend:** `https://github.com/RonaldRonan14/SCFE-Backend`
