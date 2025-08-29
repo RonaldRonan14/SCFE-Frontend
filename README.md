@@ -1,59 +1,61 @@
-# SCFE
+# Sistema de Controle Financeiro Empresarial (SCFE) - Frontend
+Uma aplicação web moderna para controle financeiro de pequenas empresas. O frontend foi desenvolvido com Angular e é responsável por gerenciar receitas, despesas, organizar dados por categorias e gerar relatórios visuais e detalhados.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+## Funcionalidades
 
-## Development server
+-   **Login:** Sistema de autenticação de usuário para proteger o acesso à aplicação.
+-   **Dashboard:** Visão geral com um resumo das transações, incluindo cards de receita, despesa e o saldo total.
+-   **Transações:** Gerenciamento completo de transações (CRUD - Criar, Ler, Atualizar e Deletar)..
+-   **Configurações:**
+    -   **Categoria:** Interface para gerenciar as categorias que organizam as transações.
+-   **Relatórios:**
+    -   **Transações por categoria:** Relatório com saldo agrupado por categoria.
 
-To start a local development server, run:
+## Pré-requisitos
+Para rodar este projeto, você precisa ter as seguintes ferramentas instaladas:
+
+-   **Node.js: versão 18.x** ou superior.
+-   **npm: versão 9.x** ou superior (geralmente já vem com o Node.js).
+-   **Angular CLI:** Instale globalmente com o comando:
+```
+npm install -g @angular/cli
+```
+-   **Editor de Código: VS Code** ou outro de sua preferência.
+
+## Configuração e Instalação
+Siga os passos abaixo para configurar e executar a aplicação localmente.
+
+### 1. Clone o Repositório
 
 ```bash
+git clone https://github.com/RonaldRonan14/SCFE-Frontend
+cd SCFE-Backend
+```
+
+### 2. Instalar Dependências
+Instale todas as dependências do projeto com o npm.
+``` 
+npm install
+```
+
+### 3. Executar a Aplicação
+Inicie o servidor de desenvolvimento do Angular.
+```
 ng serve
 ```
+A aplicação estará disponível em seu navegador em `http://localhost:4200/`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Estrutura do Projeto
+-   `src/app/auth`: Contém a lógica de autenticação, como serviços e guardas de rota.
+-   `src/app/components`: Armazena componentes reutilizáveis, como botões, formulários e cards.
+-   `src/app/enums`: Mapeamento dos enums usados na aplicação.
+-   `src/app/layouts`: Define o layout das páginas principais.
+-   `src/app/models`: Contém as interfaces e classes que modelam as entidades da API.
+-   `src/app/pages`: Armazena os componentes de cada página completa da aplicação.
+-   `src/app/services`: Responsável por toda a comunicação com a API (consumo e tratamento de retornos).
+-   `src/app/util`: Funções e utilitários que podem ser compartilhados por toda a aplicação.
 
-## Code scaffolding
+##   Projeto backend
+Este repositório contém apenas o frontend da aplicação. Para ver e executar a API, confira o projeto **Backend** correspondente.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+-   **Repositório Backend:** `https://github.com/RonaldRonan14/SCFE-Frontend`
