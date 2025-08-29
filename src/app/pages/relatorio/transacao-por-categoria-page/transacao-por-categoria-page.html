@@ -1,5 +1,5 @@
 <div class="d-flex flex-column h-100">
-    <section class="d-flex justify-content-between py-2 px-3">
+    <section class="py-2 px-3">
         <div class="d-flex align-items-center gap-3 w-25">
             <span>De:</span>
             <input class="form-control" type="date" [value]="filtro.datainicio | date: 'yyyy-MM-dd'"
@@ -8,7 +8,6 @@
             <input class="form-control" type="date" [value]="filtro.datafim | date: 'yyyy-MM-dd'"
                 (change)="filtroDataFim($event.target.value)">
         </div>
-        <button class="btn btn-primary">Exportar relatório</button>
     </section>
     <hr class="m-0" />
     <section class="flex-grow-1 overflow-y-auto">
